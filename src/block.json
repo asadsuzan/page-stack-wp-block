@@ -1,0 +1,41 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "b-blocks/page-stack",
+	"version": "1.0.0",
+	"title": "Page Stack",
+	"category": "design",
+	"description": "A WordPress plugin that provides a block for stacking pages Horizontaly.",
+	"keywords": [
+		"page stack"
+	],
+	"textdomain": "b-blocks",
+	"attributes": {
+		"alignment": {
+			"type": "string",
+			"default": "center"
+		},
+		"colors": {
+			"type": "object",
+			"default": {
+				"color": "black",
+				"bg": "#B1C5A4"
+			}
+		}
+	},
+	"supports": {
+		"align": [
+			"wide",
+			"full"
+		],
+		"html": false
+	},
+	"example": {
+		"attributes": {}
+	},
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./view.css",
+	"render": "file:./render.php",
+	"viewScript": "file:./view.js"
+}

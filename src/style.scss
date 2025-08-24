@@ -1,0 +1,19 @@
+$primaryColor: #4527a4;
+
+
+.wp-block-b-blocks-page-stack {
+	box-sizing: border-box;
+
+	* {
+		box-sizing: border-box;
+	}
+
+	.icon {
+		font-style: inherit;
+	}
+
+	img {
+		width: 100%;
+		max-width: 100%;
+	}
+}
