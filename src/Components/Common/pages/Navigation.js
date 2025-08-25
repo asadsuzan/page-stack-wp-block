@@ -28,7 +28,7 @@ const Navigation = ({
                                 : 'nav__menu-item--inactive'
                                 }`}
                         >
-                            {section.title}
+                            {section.label}
                         </button>
                     ))}
                 </div>
