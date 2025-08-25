@@ -32,3 +32,19 @@ if( !class_exists( 'PSKBPLUGIN' ) ){
 	}
 	new PSKBPLUGIN();
 }
+
+
+add_filter( 'template_include', function( $template ) {
+    if ( is_singular( 'page' ) ) {
+        global $post;
+        if ( has_block( 'b-blocks/page-stack', $post ) ) {
+            // Use a stripped-down template
+			$dir  = plugin_dir_path( __FILE__ );
+			$file = 'templates/page-stack-template.php';
+			if ( file_exists( $dir . $file ) )
+				return $dir . $file;
+
+        }
+    }
+    return $template;
+});
