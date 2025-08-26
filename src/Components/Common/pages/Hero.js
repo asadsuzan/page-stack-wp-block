@@ -1,11 +1,12 @@
 import { ArrowRight, Play } from 'lucide-react'
+import NumericLabel from '../NumericLabel'
 
 
 const Hero = ({ section }) => {
     return (
         <section className="hero-section">
             <div className="hero-overlay" />
-            <div className="hero-number">01</div>
+            <NumericLabel label={section?.order} />
 
             <div className="hero-container">
                 <div className="hero-grid">

@@ -1,12 +1,13 @@
 import React from 'react'
+import NumericLabel from '../NumericLabel'
 
-const Analytics = () => {
+const Analytics = ({ section }) => {
     return (
         <section className="analytics-section">
             <div className="overlay"></div>
             <div className="blob-top"></div>
             <div className="blob-bottom"></div>
-            <div className="section-number">09</div>
+            <NumericLabel label={section?.order} />
 
             <div className="analytics-container">
                 <div className="analytics-grid">

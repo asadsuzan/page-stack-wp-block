@@ -1,5 +1,6 @@
 import { Award, Shield, Zap } from 'lucide-react'
 import React from 'react'
+import NumericLabel from '../NumericLabel'
 
 const Features = ({ section }) => {
     return (
@@ -7,7 +8,7 @@ const Features = ({ section }) => {
         <section className="features-section">
             <div className="bg-overlay"></div>
             <div className="circle-blur"></div>
-            <div className="section-number">03</div>
+            <NumericLabel label={section?.order} />
 
             <div className="container">
                 <div className="text-block">

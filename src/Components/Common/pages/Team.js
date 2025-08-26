@@ -1,4 +1,5 @@
 import React from 'react'
+import NumericLabel from '../NumericLabel'
 
 const Team = ({ section }) => {
     return (
@@ -6,7 +7,7 @@ const Team = ({ section }) => {
             <div className="overlay"></div>
             <div className="circle-top"></div>
             <div className="circle-bottom"></div>
-            <div className="section-number">07</div>
+            <NumericLabel label={section?.order} />
 
             <div className="container">
                 <div className="text-center">

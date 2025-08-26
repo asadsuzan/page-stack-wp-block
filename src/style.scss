@@ -2,10 +2,18 @@ $primaryColor: #4527a4;
 
 body {
 	overflow-y: hidden;
+
 }
 
 .wp-block-b-blocks-page-stack {
 	box-sizing: border-box;
+	font-family: ui-sans-serif,
+		system-ui,
+		sans-serif,
+		"Apple Color Emoji",
+		"Segoe UI Emoji",
+		"Segoe UI Symbol",
+		"Noto Color Emoji";
 
 
 	* {
@@ -38,6 +46,27 @@ body {
 			overflow: hidden;
 			color: white;
 			position: relative;
+
+			.psnl_numeric_label {
+				position: absolute;
+				top: 5rem;
+				/* 80px */
+				left: 2.5rem;
+				/* 40px */
+				color: rgba(255, 255, 255, 0.2);
+				font-size: 8rem;
+				/* 128px */
+				font-weight: 700;
+				pointer-events: none;
+				user-select: none;
+				font-family: ui-sans-serif,
+					system-ui,
+					sans-serif,
+					"Apple Color Emoji",
+					"Segoe UI Emoji",
+					"Segoe UI Symbol",
+					"Noto Color Emoji";
+			}
 
 		}
 
@@ -324,17 +353,17 @@ body {
 				background: linear-gradient(to right, rgba(37, 99, 235, 0.2), rgba(147, 51, 234, 0.2));
 			}
 
-			.hero-number {
-				position: absolute;
-				top: 5rem;
-				/* 80px */
-				left: 2.5rem;
-				/* 40px */
-				color: rgba(255, 255, 255, 0.2);
-				font-size: 8rem;
-				/* 128px */
-				font-weight: 700;
-			}
+			// .hero-number {
+			// 	position: absolute;
+			// 	top: 5rem;
+			// 	/* 80px */
+			// 	left: 2.5rem;
+			// 	/* 40px */
+			// 	color: rgba(255, 255, 255, 0.2);
+			// 	font-size: 8rem;
+			// 	/* 128px */
+			// 	font-weight: 700;
+			// }
 
 			.hero-container {
 				width: 100%;
@@ -623,16 +652,16 @@ body {
 				transform: translate(-50%, -50%);
 			}
 
-			.section-number {
-				position: absolute;
-				top: 5rem;
-				/* 20 */
-				left: 2.5rem;
-				/* 10 */
-				font-size: 9rem;
-				font-weight: bold;
-				color: rgba(255, 255, 255, 0.1);
-			}
+			// .section-number {
+			// 	position: absolute;
+			// 	top: 5rem;
+			// 	/* 20 */
+			// 	left: 2.5rem;
+			// 	/* 10 */
+			// 	font-size: 9rem;
+			// 	font-weight: bold;
+			// 	color: rgba(255, 255, 255, 0.1);
+			// }
 
 			.container {
 				position: relative;
@@ -844,14 +873,14 @@ body {
 				filter: blur(3rem);
 			}
 
-			.section-number {
-				position: absolute;
-				top: 5rem;
-				left: 2.5rem;
-				font-size: 9rem;
-				font-weight: bold;
-				color: rgba(255, 255, 255, 0.1);
-			}
+			// .section-number {
+			// 	position: absolute;
+			// 	top: 5rem;
+			// 	left: 2.5rem;
+			// 	font-size: 9rem;
+			// 	font-weight: bold;
+			// 	color: rgba(255, 255, 255, 0.1);
+			// }
 
 			.container {
 				position: relative;
@@ -1021,17 +1050,17 @@ body {
 				filter: blur(2rem);
 			}
 
-			.section-number {
-				position: absolute;
-				top: 5rem;
-				/* top-20 */
-				right: 2.5rem;
-				/* right-10 */
-				font-size: 9rem;
-				/* text-9xl */
-				font-weight: bold;
-				color: rgba(255, 255, 255, 0.1);
-			}
+			// .section-number {
+			// 	position: absolute;
+			// 	top: 5rem;
+			// 	/* top-20 */
+			// 	right: 2.5rem;
+			// 	/* right-10 */
+			// 	font-size: 9rem;
+			// 	/* text-9xl */
+			// 	font-weight: bold;
+			// 	color: rgba(255, 255, 255, 0.1);
+			// }
 
 			.container {
 				position: relative;
@@ -1205,15 +1234,15 @@ body {
 				filter: blur(40px);
 			}
 
-			.section-number {
-				position: absolute;
-				top: 5rem;
-				right: 2.5rem;
-				font-weight: 700;
-				font-size: 8rem;
-				line-height: 1;
-				color: rgba(255, 255, 255, .10);
-			}
+			// .section-number {
+			// 	position: absolute;
+			// 	top: 5rem;
+			// 	right: 2.5rem;
+			// 	font-weight: 700;
+			// 	font-size: 8rem;
+			// 	line-height: 1;
+			// 	color: rgba(255, 255, 255, .10);
+			// }
 
 			/* container (Tailwind container + px-8 py-20) */
 			.analytics-container {
