@@ -1,21 +1,25 @@
 import React from 'react'
 import NumericLabel from '../NumericLabel'
+import PageTitle from '../PageTitle';
 
 const Team = ({ section }) => {
+    const { title, order, description, buttons } = section || {};
     return (
         <section className="team-section">
             <div className="overlay"></div>
             <div className="circle-top"></div>
             <div className="circle-bottom"></div>
-            <NumericLabel label={section?.order} />
+            <NumericLabel label={order} />
 
             <div className="container">
                 <div className="text-center">
-                    <h2>
+                    {/* <h2>
                         Meet Our
                         <br />
                         <span className="text-gradient">Expert Team</span>
-                    </h2>
+                    </h2> */}
+                    <PageTitle title={title} />
+
                     <p className="subtitle">
                         Passionate professionals dedicated to delivering exceptional results and innovative solutions.
                     </p>

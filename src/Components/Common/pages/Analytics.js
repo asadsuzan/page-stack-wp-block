@@ -1,7 +1,9 @@
 import React from 'react'
 import NumericLabel from '../NumericLabel'
+import PageTitle from '../PageTitle';
 
 const Analytics = ({ section }) => {
+    const { title, order, description, buttons } = section || {};
     return (
         <section className="analytics-section">
             <div className="overlay"></div>
@@ -14,11 +16,12 @@ const Analytics = ({ section }) => {
                     {/* Left */}
                     <div className="analytics-left">
                         <div className="stack">
-                            <h2 className="analytics-title">
+                            {/* <h2 className="analytics-title">
                                 Real-time
                                 <br />
                                 <span className="text-gradient">Analytics</span>
-                            </h2>
+                            </h2> */}
+                            <PageTitle title={title} />
                             <p className="analytics-desc">
                                 Gain deep insights into your business performance with our advanced analytics dashboard and
                                 real-time reporting capabilities.

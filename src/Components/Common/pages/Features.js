@@ -1,22 +1,25 @@
 import { Award, Shield, Zap } from 'lucide-react'
 import React from 'react'
 import NumericLabel from '../NumericLabel'
+import PageTitle from '../PageTitle';
 
 const Features = ({ section }) => {
+    const { title, order, description, buttons } = section || {};
     return (
 
         <section className="features-section">
             <div className="bg-overlay"></div>
             <div className="circle-blur"></div>
-            <NumericLabel label={section?.order} />
+            <NumericLabel label={order} />
 
             <div className="container">
                 <div className="text-block">
-                    <h2>
+                    {/* <h2>
                         Institutional-Grade
                         <br />
                         <span className="text-gradient">Infrastructure</span>
-                    </h2>
+                    </h2> */}
+                    <PageTitle title={title} />
                     <p>
                         Stack&#39;s scalable digital-first and AI-powered operational infrastructure ensures every fund benefits from uniformity in processes, compliance, reporting, and risk management.
                     </p>

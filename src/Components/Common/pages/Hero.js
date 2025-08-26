@@ -1,8 +1,10 @@
 import { ArrowRight, Play } from 'lucide-react'
 import NumericLabel from '../NumericLabel'
+import PageTitle from '../PageTitle';
 
 
 const Hero = ({ section }) => {
+    const { order, title, description, buttons } = section || {};
     return (
         <section className="hero-section">
             <div className="hero-overlay" />
@@ -12,13 +14,7 @@ const Hero = ({ section }) => {
                 <div className="hero-grid">
                     <div className="hero-content">
                         <div className="hero-text-content">
-                            <h1 className="hero-title">
-                                Deep
-                                <br />
-                                <span className="hero-title-gradient">
-                                    Specialization
-                                </span>
-                            </h1>
+                            <PageTitle title={title} />
                             <p className="hero-description">
                                 Crafting extraordinary experiences through precision engineering and innovative design methodologies.
                             </p>

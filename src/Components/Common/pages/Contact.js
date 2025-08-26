@@ -1,25 +1,29 @@
 import { ArrowRight, Mail, Shield, Users, Zap } from 'lucide-react'
 import React from 'react'
 import NumericLabel from '../NumericLabel'
+import PageTitle from '../PageTitle';
 
 const Contact = ({ section }) => {
+    const { order, title, description, buttons } = section || {};
     return (
         <section className="contact-section">
             <div className="overlay"></div>
             <div className="circle-top"></div>
             <div className="circle-bottom"></div>
-            <NumericLabel label={section?.order} />
+            <NumericLabel label={order} />
 
             <div className="container">
                 <div className="text-center">
                     <div className="space-y-8">
-                        <h2>
+                        {/* <h2>
                             Ready to
                             <br />
                             <span className="text-gradient">Transform</span>
                             <br />
                             Your Stack?
-                        </h2>
+                        </h2> */}
+
+                        <PageTitle title={title} />
 
                         <p>
                             Join the revolution of institutional-grade infrastructure. Let&#39;s build something extraordinary together.

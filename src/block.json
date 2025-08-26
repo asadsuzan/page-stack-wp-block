@@ -25,6 +25,29 @@
 				"color": "black",
 				"bg": "#B1C5A4"
 			}
+		},
+		"styles": {
+			"type": "object",
+			"default": {
+				"pgTitle": {
+					"typo": {
+						"fontWeight": 700,
+						"fontSize": {
+							"desktop": 72,
+							"tablet": 60,
+							"mobile": 48
+						},
+						"lineHeight": 1,
+						"fontFamily": "ui-sans-serif, system-ui"
+					},
+					"color": "#ffffff",
+					"highlight": {
+						"bg": {
+							"color": "linear-gradient(to right, #22d3ee, #c084fc)"
+						}
+					}
+				}
+			}
 		}
 	},
 	"supports": {

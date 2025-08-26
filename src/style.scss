@@ -47,6 +47,8 @@ body {
 			color: white;
 			position: relative;
 
+			// numeric label styles
+
 			.psnl_numeric_label {
 				position: absolute;
 				top: 5rem;
@@ -67,6 +69,25 @@ body {
 					"Segoe UI Symbol",
 					"Noto Color Emoji";
 			}
+
+			// page title styles 
+			.ps_title {
+				// font-size: 72px;
+				// font-weight: 300;
+				// color: white;
+				// line-height: 1;
+				// font-family: inherit;
+				margin: 0;
+
+				.pst_gradient {
+					// font-weight: 700;
+					// background: linear-gradient(to right, #22d3ee, #c084fc);
+					// background-clip: text;
+					-webkit-background-clip: text;
+					color: transparent;
+				}
+			}
+
 
 		}
 
@@ -407,28 +428,28 @@ body {
 				/* 16px */
 			}
 
-			.hero-title {
-				font-size: 3.75rem;
-				/* 60px */
-				font-weight: 300;
-				color: white;
-				line-height: 1.25;
-			}
+			// .hero-title {
+			// 	font-size: 3.75rem;
+			// 	/* 60px */
+			// 	font-weight: 300;
+			// 	color: white;
+			// 	line-height: 1.25;
+			// }
 
-			@media (min-width: 1024px) {
-				.hero-title {
-					font-size: 4.5rem;
-					/* 72px */
-				}
-			}
+			// @media (min-width: 1024px) {
+			// 	.hero-title {
+			// 		font-size: 4.5rem;
+			// 		/* 72px */
+			// 	}
+			// }
 
-			.hero-title-gradient {
-				font-weight: 700;
-				background: linear-gradient(to right, #22d3ee, #c084fc);
-				background-clip: text;
-				-webkit-background-clip: text;
-				color: transparent;
-			}
+			// .hero-title-gradient {
+			// 	font-weight: 700;
+			// 	background: linear-gradient(to right, #22d3ee, #c084fc);
+			// 	background-clip: text;
+			// 	-webkit-background-clip: text;
+			// 	color: transparent;
+			// }
 
 			.hero-description {
 				font-size: 1.25rem;
@@ -673,6 +694,8 @@ body {
 				display: grid;
 				grid-template-columns: 1fr;
 			}
+
+
 
 			@media (min-width: 1024px) {
 				.container {
