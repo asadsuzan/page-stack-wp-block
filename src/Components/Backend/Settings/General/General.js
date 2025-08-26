@@ -1,32 +1,68 @@
 import { __ } from "@wordpress/i18n";
 import { PanelBody, SelectControl, ToggleControl } from "@wordpress/components";
-import { purposeTypeOptions } from "../../../../utils/options";
-import { updateData } from "../../../../utils/functions";
+
+import { generateId, updateData } from "../../../../utils/functions";
+import { ItemsPanel } from '../../../../../../bpl-tools-main/Components';
+import SectionItemsPanel from '../../itemsPanel/sectionsItemPanel';
+import { useState } from 'react';
 
 const General = ({ attributes, setAttributes }) => {
-  const { purposeType } = attributes;
+  const { sections, activeSectionIndex } = attributes || {}
+
+  const [activeIndex, setActiveIndex] = useState(0)
+  console.log(activeIndex, 'general');
 
   return (
-    <PanelBody
-      className="bPlPanelBody"
-      title={__("Purpose", "b-blocks")}
-      initialOpen={false}
-    >
-      <SelectControl
-        label={__("Purpose", "b-blocks")}
-        labelPosition="left"
-        value={purposeType}
-        options={purposeTypeOptions}
-        onChange={(v) =>
-          setAttributes({ purposeType: updateData(purposeType, v) })
-        }
-      />
-      <ToggleControl
-        label="Open links in new tab"
-        checked={attributes.openInNewTab}
-        onChange={(value) => setAttributes({ openInNewTab: value })}
-      />
-    </PanelBody>
+    <>
+
+
+      {/* pages  */}
+      <PanelBody
+        className="bPlPanelBody"
+        title={__("Pages", "b-blocks")}
+        initialOpen={true} >
+
+        <ItemsPanel
+          {...{ attributes, setAttributes, activeIndex }}
+          arrKey="sections"
+          activeIndex={activeSectionIndex}
+          newItem={{
+            "id": `New Page ${generateId(sections)}`,
+            "label": `New Page ${generateId(sections)}`,
+            "order": generateId(sections),
+            "title": [
+              {
+                "text": "",
+                "highlight": false
+              },
+              {
+                "text": "",
+                "highlight": true
+              }
+            ],
+            "description": "",
+            "buttons": [
+              {
+                "text": "",
+                "url": "#",
+                "isShow": true,
+                "icon": ""
+              }
+
+            ],
+            "visuals": []
+          }}
+          ItemSettings={SectionItemsPanel}
+          design="sortable"
+          title='label'
+          onChange={v => console.log(v, 'from general')}
+        />
+      </PanelBody>
+
+
+    </>
+
+
   );
 };
 

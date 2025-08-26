@@ -13,7 +13,7 @@ const Edit = (props) => {
       <div {...useBlockProps()}>
         <Style attributes={attributes} id={`block-${clientId}`} />
 
-        <Stack attributes={attributes} />
+        <Stack attributes={attributes} setAttributes={setAttributes} />
       </div>
     </>
   );

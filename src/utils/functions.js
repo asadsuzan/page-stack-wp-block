@@ -17,3 +17,10 @@ export const updateData = (attr, value, ...props) => {
     draft[currentProp] = updateData(draft[currentProp], value, ...remainingProps);
   });
 };
+
+
+export const generateId = (itemArray) => {
+  const ids = itemArray.map((item) => item?.order);
+  const maxId = Math.max(...ids);
+  return maxId + 1;
+};
