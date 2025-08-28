@@ -19,11 +19,11 @@ const SectionItemsPanel = ({ attributes, setAttributes, index, activeIndex }) =>
 
 
 
+            {/* title setings  */}
             {
                 sections[index]?.title?.map((item, idx) => {
                     return <>
                         <>
-                            {/* title  */}
                             <PanelRow>
                                 <Label className=" ">Title</Label>
                                 <ToggleControl
@@ -45,7 +45,18 @@ const SectionItemsPanel = ({ attributes, setAttributes, index, activeIndex }) =>
 
 
 
+            {/* description setting  */}
 
+            <TextareaControl
+                className='mt20'
+                label="Description"
+                value={sections[index]?.description}
+                onChange={(v) => setAttributes({
+                    sections: updateData(sections, v, index, 'description')
+                })}
+
+
+            />
 
         </>
     );

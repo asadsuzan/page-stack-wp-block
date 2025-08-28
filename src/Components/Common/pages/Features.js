@@ -2,6 +2,7 @@ import { Award, Shield, Zap } from 'lucide-react'
 import React from 'react'
 import NumericLabel from '../NumericLabel'
 import PageTitle from '../PageTitle';
+import PageDescription from '../PageDescription';
 
 const Features = ({ section }) => {
     const { title, order, description, buttons } = section || {};
@@ -20,9 +21,10 @@ const Features = ({ section }) => {
                         <span className="text-gradient">Infrastructure</span>
                     </h2> */}
                     <PageTitle title={title} />
-                    <p>
+                    {/* <p>
                         Stack&#39;s scalable digital-first and AI-powered operational infrastructure ensures every fund benefits from uniformity in processes, compliance, reporting, and risk management.
-                    </p>
+                    </p> */}
+                    <PageDescription {...{ description }} />
 
                     <div className="feature-list">
                         {[

@@ -2,6 +2,7 @@ import { ArrowRight, Mail, Shield, Users, Zap } from 'lucide-react'
 import React from 'react'
 import NumericLabel from '../NumericLabel'
 import PageTitle from '../PageTitle';
+import PageDescription from '../PageDescription';
 
 const Contact = ({ section }) => {
     const { order, title, description, buttons } = section || {};
@@ -25,9 +26,10 @@ const Contact = ({ section }) => {
 
                         <PageTitle title={title} />
 
-                        <p>
+                        {/* <p>
                             Join the revolution of institutional-grade infrastructure. Let&#39;s build something extraordinary together.
-                        </p>
+                        </p> */}
+                        <PageDescription {...{ description }} />
 
                         <div className="space-y-6">
                             <div className="cta-buttons">

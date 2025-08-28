@@ -1,11 +1,12 @@
 $primaryColor: #4527a4;
 
-body {
-	overflow-y: hidden;
+// body {
+// 	overflow-y: hidden;
 
-}
+// }
 
 .wp-block-b-blocks-page-stack {
+	overflow-y: hidden;
 	box-sizing: border-box;
 	font-family: ui-sans-serif,
 		system-ui,
@@ -88,6 +89,18 @@ body {
 				}
 			}
 
+			// page descriptopn
+			.ps_description {
+				// font-size: 1.25rem;
+				// /* 20px */
+				// color: rgba(255, 255, 255, 0.8);
+				// /* 512px */
+				// line-height: 1.625;
+				word-wrap: break-word;
+		        overflow-wrap: break-word;
+				max-width: 32rem;
+		        
+			}
 
 		}
 
@@ -451,14 +464,14 @@ body {
 			// 	color: transparent;
 			// }
 
-			.hero-description {
-				font-size: 1.25rem;
-				/* 20px */
-				color: rgba(255, 255, 255, 0.8);
-				max-width: 32rem;
-				/* 512px */
-				line-height: 1.625;
-			}
+			// .hero-description {
+			// 	font-size: 1.25rem;
+			// 	/* 20px */
+			// 	color: rgba(255, 255, 255, 0.8);
+			// 	max-width: 32rem;
+			// 	/* 512px */
+			// 	line-height: 1.625;
+			// }
 
 			.hero-buttons {
 				display: flex;
@@ -706,13 +719,13 @@ body {
 				}
 			}
 
-			.text-block h2 {
-				font-size: 3rem;
-				/* text-5xl */
-				font-weight: 700;
-				line-height: 1.2;
-				margin-bottom: 1.5rem;
-			}
+			// .text-block h2 {
+			// 	font-size: 3rem;
+			// 	/* text-5xl */
+			// 	font-weight: 700;
+			// 	line-height: 1.2;
+			// 	margin-bottom: 1.5rem;
+			// }
 
 			.text-gradient {
 				background: linear-gradient(to right, #06b6d4, #a78bfa);
@@ -720,13 +733,13 @@ body {
 				-webkit-text-fill-color: transparent;
 			}
 
-			.text-block p {
-				font-size: 1.25rem;
-				/* text-xl */
-				color: #d1d5db;
-				/* text-gray-300 */
-				line-height: 1.75rem;
-			}
+			// .text-block p {
+			// 	font-size: 1.25rem;
+			// 	/* text-xl */
+			// 	color: #d1d5db;
+			// 	/* text-gray-300 */
+			// 	line-height: 1.75rem;
+			// }
 
 			.feature-list {
 				margin-top: 2rem;
@@ -923,12 +936,12 @@ body {
 				/* max-w-4xl */
 			}
 
-			h2 {
-				font-weight: 700;
-				line-height: 1.2;
-				font-size: 3.75rem;
-				/* text-6xl */
-			}
+			// h2 {
+			// 	font-weight: 700;
+			// 	line-height: 1.2;
+			// 	font-size: 3.75rem;
+			// 	/* text-6xl */
+			// }
 
 			@media (min-width: 1024px) {
 				h2 {
@@ -937,21 +950,21 @@ body {
 				}
 			}
 
-			.text-gradient {
-				background: linear-gradient(to right, #06b6d4, #a78bfa, #ec4899);
-				-webkit-background-clip: text;
-				-webkit-text-fill-color: transparent;
-			}
+			// .text-gradient {
+			// 	background: linear-gradient(to right, #06b6d4, #a78bfa, #ec4899);
+			// 	-webkit-background-clip: text;
+			// 	-webkit-text-fill-color: transparent;
+			// }
 
-			p {
-				font-size: 1.25rem;
-				/* text-xl */
-				color: #d1d5db;
-				max-width: 42rem;
-				/* max-w-2xl */
-				margin: 0 auto;
-				line-height: 1.75rem;
-			}
+			// p {
+			// 	font-size: 1.25rem;
+			// 	/* text-xl */
+			// 	color: #d1d5db;
+			// 	max-width: 42rem;
+			// 	/* max-w-2xl */
+			// 	margin: 0 auto;
+			// 	line-height: 1.75rem;
+			// }
 
 			.cta-buttons {
 				margin-top: 2rem;
@@ -1098,29 +1111,32 @@ body {
 				margin-bottom: 4rem;
 				/* mb-16 */
 			}
-
-			h2 {
-				font-size: 3rem;
-				/* text-5xl */
-				font-weight: 700;
-				margin-bottom: 1.5rem;
+		.ps_description {
+			margin: 20px auto;
+		        
 			}
+			// h2 {
+			// 	font-size: 3rem;
+			// 	/* text-5xl */
+			// 	font-weight: 700;
+			// 	margin-bottom: 1.5rem;
+			// }
 
-			.text-gradient {
-				background: linear-gradient(to right, #f472b6, #a78bfa);
-				-webkit-background-clip: text;
-				-webkit-text-fill-color: transparent;
-			}
+			// .text-gradient {
+			// 	background: linear-gradient(to right, #f472b6, #a78bfa);
+			// 	-webkit-background-clip: text;
+			// 	-webkit-text-fill-color: transparent;
+			// }
 
-			.subtitle {
-				font-size: 1.25rem;
-				/* text-xl */
-				color: #d1d5db;
-				/* text-gray-300 */
-				max-width: 42rem;
-				/* max-w-2xl */
-				margin: 0 auto;
-			}
+			// .subtitle {
+			// 	font-size: 1.25rem;
+			// 	/* text-xl */
+			// 	color: #d1d5db;
+			// 	/* text-gray-300 */
+			// 	max-width: 42rem;
+			// 	/* max-w-2xl */
+			// 	margin: 0 auto;
+			// }
 
 			/* Team Grid */
 			.team-grid {
@@ -1335,25 +1351,25 @@ body {
 			}
 
 			/* headings & text */
-			.analytics-title {
-				font-size: 3rem;
-				line-height: 1.25;
-				font-weight: 700;
-				/* text-5xl leading-tight */
-			}
+			// .analytics-title {
+			// 	font-size: 3rem;
+			// 	line-height: 1.25;
+			// 	font-weight: 700;
+			// 	/* text-5xl leading-tight */
+			// }
 
-			.analytics-title .text-gradient {
-				background: linear-gradient(to right, #4ade80, #60a5fa);
-				-webkit-background-clip: text;
-				-webkit-text-fill-color: transparent;
-			}
+			// .analytics-title .text-gradient {
+			// 	background: linear-gradient(to right, #4ade80, #60a5fa);
+			// 	-webkit-background-clip: text;
+			// 	-webkit-text-fill-color: transparent;
+			// }
 
-			.analytics-desc {
-				font-size: 1.25rem;
-				line-height: 1.625;
-				color: #d1d5db;
-				/* text-xl leading-relaxed text-gray-300 */
-			}
+			// .analytics-desc {
+			// 	font-size: 1.25rem;
+			// 	line-height: 1.625;
+			// 	color: #d1d5db;
+			// 	/* text-xl leading-relaxed text-gray-300 */
+			// }
 
 			/* stats grid */
 			.stats-grid {

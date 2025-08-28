@@ -1,6 +1,7 @@
 import React from 'react'
 import NumericLabel from '../NumericLabel'
 import PageTitle from '../PageTitle';
+import PageDescription from '../PageDescription';
 
 const Team = ({ section }) => {
     const { title, order, description, buttons } = section || {};
@@ -20,9 +21,10 @@ const Team = ({ section }) => {
                     </h2> */}
                     <PageTitle title={title} />
 
-                    <p className="subtitle">
+                    {/* <p className="subtitle">
                         Passionate professionals dedicated to delivering exceptional results and innovative solutions.
-                    </p>
+                    </p> */}
+                    <PageDescription {...{ description }} />
                 </div>
 
                 <div className="team-grid">

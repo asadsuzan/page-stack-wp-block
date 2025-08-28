@@ -1,6 +1,7 @@
 import React from 'react'
 import NumericLabel from '../NumericLabel'
 import PageTitle from '../PageTitle';
+import PageDescription from '../PageDescription';
 
 const Analytics = ({ section }) => {
     const { title, order, description, buttons } = section || {};
@@ -22,10 +23,11 @@ const Analytics = ({ section }) => {
                                 <span className="text-gradient">Analytics</span>
                             </h2> */}
                             <PageTitle title={title} />
-                            <p className="analytics-desc">
+                            {/* <p className="analytics-desc">
                                 Gain deep insights into your business performance with our advanced analytics dashboard and
                                 real-time reporting capabilities.
-                            </p>
+                            </p> */}
+                            <PageDescription {...{ description }} />
                         </div>
 
                         <div className="stats-grid">

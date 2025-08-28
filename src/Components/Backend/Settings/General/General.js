@@ -2,67 +2,60 @@ import { __ } from "@wordpress/i18n";
 import { PanelBody, SelectControl, ToggleControl } from "@wordpress/components";
 
 import { generateId, updateData } from "../../../../utils/functions";
-import { ItemsPanel } from '../../../../../../bpl-tools-main/Components';
-import SectionItemsPanel from '../../itemsPanel/sectionsItemPanel';
-import { useState } from 'react';
+import { ItemsPanel } from "../../../../../../bpl-tools-main/Components";
+import SectionItemsPanel from "../../itemsPanel/sectionsItemPanel";
+import { useState } from "react";
 
 const General = ({ attributes, setAttributes }) => {
-  const { sections, activeSectionIndex } = attributes || {}
+  const { sections, activeSectionIndex } = attributes || {};
 
-  const [activeIndex, setActiveIndex] = useState(0)
-  console.log(activeIndex, 'general');
+  const [activeIndex, setActiveIndex] = useState(0);
+  console.log(activeIndex, "general");
 
   return (
     <>
-
-
       {/* pages  */}
       <PanelBody
         className="bPlPanelBody"
-        title={__("Pages", "b-blocks")}
-        initialOpen={true} >
-
+        title={__("Page", "b-blocks")}
+        initialOpen={true}
+      >
         <ItemsPanel
           {...{ attributes, setAttributes, activeIndex }}
           arrKey="sections"
           activeIndex={activeSectionIndex}
           newItem={{
-            "id": `New Page ${generateId(sections)}`,
-            "label": `New Page ${generateId(sections)}`,
-            "order": generateId(sections),
-            "title": [
+            id: `New Page ${generateId(sections)}`,
+            label: `New Page ${generateId(sections)}`,
+            order: generateId(sections),
+            title: [
               {
-                "text": "",
-                "highlight": false
+                text: "",
+                highlight: false,
               },
               {
-                "text": "",
-                "highlight": true
-              }
+                text: "",
+                highlight: true,
+              },
             ],
-            "description": "",
-            "buttons": [
+            description: "",
+            buttons: [
               {
-                "text": "",
-                "url": "#",
-                "isShow": true,
-                "icon": ""
-              }
-
+                text: "",
+                url: "#",
+                isShow: true,
+                icon: "",
+              },
             ],
-            "visuals": []
+            visuals: [],
           }}
           ItemSettings={SectionItemsPanel}
-          design="sortable"
-          title='label'
-          onChange={v => console.log(v, 'from general')}
+          design="single"
+          itemLabel={sections[activeSectionIndex]?.label}
+          onChange={(v) => console.log(v, "from general")}
         />
       </PanelBody>
-
-
     </>
-
-
   );
 };
 

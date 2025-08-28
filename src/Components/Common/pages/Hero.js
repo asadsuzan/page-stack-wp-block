@@ -1,6 +1,7 @@
 import { ArrowRight, Play } from 'lucide-react'
 import NumericLabel from '../NumericLabel'
 import PageTitle from '../PageTitle';
+import PageDescription from '../PageDescription';
 
 
 const Hero = ({ section }) => {
@@ -15,9 +16,10 @@ const Hero = ({ section }) => {
                     <div className="hero-content">
                         <div className="hero-text-content">
                             <PageTitle title={title} />
-                            <p className="hero-description">
+                            {/* <p className="hero-description">
                                 Crafting extraordinary experiences through precision engineering and innovative design methodologies.
-                            </p>
+                            </p> */}
+                            <PageDescription {...{ description }} />
                         </div>
 
                         <div className="hero-buttons">
