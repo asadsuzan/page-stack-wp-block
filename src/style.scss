@@ -101,7 +101,48 @@ $primaryColor: #4527a4;
 				max-width: 32rem;
 		        
 			}
-
+			.ps_btn_group{
+				display: flex;
+				align-items: center;
+			.ps_btn{
+				display: flex;
+				align-items: center;
+				text-decoration: none;
+				div{
+					display: flex;
+					align-items: center;
+				}
+				}
+				.ps_btn>*+*{
+					margin-left: 1rem;
+				}
+				.ps_btn_primary {
+					background: linear-gradient(to right, #06b6d4, #a78bfa);
+				color: #fff;
+				padding: 1rem 2rem;
+				border-radius: 9999px;
+				font-weight: 600;
+				border: none;
+				cursor: pointer;
+				transition: all 0.3s;
+				/* space-x-2 equivalent */
+			}
+				.ps_btn_secondary {
+				border: 1px solid rgba(255, 255, 255, 0.3);
+				color: #fff;
+				padding: 1rem 2.5rem;
+				border-radius: 9999px;
+				font-weight: 600;
+				font-size: 1.125rem;
+				background: transparent;
+				cursor: pointer;
+				transition: background 0.3s ease;
+			}
+    		 }
+			.ps_btn_group>*+* {
+				margin-left: 1.5rem;
+			
+			}
 		}
 
 		// scroll container styles 
@@ -473,16 +514,16 @@ $primaryColor: #4527a4;
 			// 	line-height: 1.625;
 			// }
 
-			.hero-buttons {
-				display: flex;
-				align-items: center;
-				/* space-x-6 equivalent */
-			}
+			// .hero-buttons {
+			// 	display: flex;
+			// 	align-items: center;
+			// 	/* space-x-6 equivalent */
+			// }
 
-			.hero-buttons>*+* {
-				margin-left: 1.5rem;
-				/* 24px */
-			}
+			// .hero-buttons>*+* {
+			// 	margin-left: 1.5rem;
+			// 	/* 24px */
+			// }
 
 			.hero-button-primary {
 				background-color: white;

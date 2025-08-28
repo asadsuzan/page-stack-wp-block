@@ -51,8 +51,8 @@ const General = ({ attributes, setAttributes }) => {
           }}
           ItemSettings={SectionItemsPanel}
           design="single"
+          title="label"
           itemLabel={sections[activeSectionIndex]?.label}
-          onChange={(v) => console.log(v, "from general")}
         />
       </PanelBody>
     </>

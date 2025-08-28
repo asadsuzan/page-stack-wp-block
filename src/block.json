@@ -46,16 +46,38 @@
 					"description": "Crafting extraordinary experiences through precision engineering and innovative design methodologies.",
 					"buttons": [
 						{
+							"type": "regular",
+							"variant": "primary",
+							"target": "_blank",
 							"text": "Explore More",
 							"url": "/explore",
 							"isShow": true,
-							"icon": "arrow-right"
+							"icons": {
+								"pre": {
+									"isShow": false,
+									"icon": ""
+								},
+								"post": {
+									"isShow": true,
+									"icon": "arrow-right"
+								}
+							}
 						},
 						{
+							"type": "media",
 							"text": "Watch Demo",
 							"url": "/demo",
 							"isShow": true,
-							"icon": "play"
+							"icons": {
+								"pre": {
+									"icon": "play",
+									"isShow": true
+								},
+								"post": {
+									"icon": "",
+									"isShow": false
+								}
+							}
 						}
 					],
 					"visuals": [
@@ -103,14 +125,40 @@
 					],
 					"buttons": [
 						{
+							"type": "regular",
+							"variant": "primary",
+							"target": "_blank",
 							"text": "Learn More",
 							"url": "/learn-more",
-							"isShow": true
+							"isShow": true,
+							"icons": {
+								"pre": {
+									"icon": "",
+									"isShow": false
+								},
+								"post": {
+									"icon": "",
+									"isShow": false
+								}
+							}
 						},
 						{
+							"type": "regular",
+							"variant": "secondary",
+							"target": "_blank",
 							"text": "Documentation",
 							"url": "/docs",
-							"isShow": true
+							"isShow": true,
+							"icons": {
+								"pre": {
+									"icon": "",
+									"isShow": false
+								},
+								"post": {
+									"icon": "",
+									"isShow": false
+								}
+							}
 						}
 					],
 					"visuals": [
@@ -153,15 +201,40 @@
 					"description": "Join the revolution of institutional-grade infrastructure. Let's build something extraordinary together.",
 					"buttons": [
 						{
+							"type": "email",
+							"variant": "primary",
 							"text": "Get Started Today",
-							"url": "/get-started",
+							"email": "contact@stack.com",
 							"isShow": true,
-							"icon": "mail,arrow-right"
+							"icon": "mail,arrow-right",
+							"icons": {
+								"pre": {
+									"icon": "envelope",
+									"isShow": true
+								},
+								"post": {
+									"icon": "arrow-right",
+									"isShow": true
+								}
+							}
 						},
 						{
+							"type": "regular",
+							"variant": "secondary",
+							"target": "_blank",
 							"text": "Schedule Demo",
 							"url": "/schedule-demo",
-							"isShow": true
+							"isShow": true,
+							"icons": {
+								"pre": {
+									"icon": "",
+									"isShow": false
+								},
+								"post": {
+									"icon": "false",
+									"isShow": false
+								}
+							}
 						}
 					],
 					"highlights": [
