@@ -1,11 +1,8 @@
-const iconColor = '#4527a4';
 
-export const blockIcon = <svg xmlns='http://www.w3.org/2000/svg' width={24} height={24} viewBox='0 0 20 20' fill={iconColor}>
-	<path fill={iconColor} fillRule='evenodd' d='M9.938 4.016a.146.146 0 00-.054.057L3.027 15.74a.176.176 0 00-.002.183c.016.03.037.05.054.06.015.01.034.017.066.017h13.713a.12.12 0 00.066-.017.163.163 0 00.055-.06.176.176 0 00-.003-.183L10.12 4.073a.146.146 0 00-.054-.057.13.13 0 00-.063-.016.13.13 0 00-.064.016zm1.043-.45a1.13 1.13 0 00-1.96 0L2.166 15.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L10.982 3.566z'></path>
-	<rect fill={iconColor} width='2' height='2' x='9.002' y='13' rx='1'></rect>
-	<path fill={iconColor} d='M9.1 7.995a.905.905 0 111.8 0l-.35 3.507a.553.553 0 01-1.1 0L9.1 7.995z'></path>
-</svg>;
 
+export const blockIcon = function ImStack(props) {
+	return <svg stroke="currentColor" fill="currentColor" strokeWidth={0} viewBox="0 0 16 16" height="1em" width="1em" {...props}><path d="M16 5l-8-4-8 4 8 4 8-4zM8 2.328l5.345 2.672-5.345 2.672-5.345-2.672 5.345-2.672zM14.398 7.199l1.602 0.801-8 4-8-4 1.602-0.801 6.398 3.199zM14.398 10.199l1.602 0.801-8 4-8-4 1.602-0.801 6.398 3.199z" /></svg>;
+}
 export const verticalLineIcon = <svg xmlns='http://www.w3.org/2000/svg' width={24} height={24} viewBox='0 0 14.707 14.707'>
 	<rect x='6.275' y='0' width='2.158' height='14.707' />
 </svg>;
@@ -13,3 +10,7 @@ export const verticalLineIcon = <svg xmlns='http://www.w3.org/2000/svg' width={2
 export const horizontalLineIcon = <svg xmlns='http://www.w3.org/2000/svg' width={24} height={24} viewBox='0 0 357 357'>
 	<path d='M357,204H0v-51h357V204z' />
 </svg>;
+
+import * as React from "react";
+
+
