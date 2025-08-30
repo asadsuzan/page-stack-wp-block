@@ -54,12 +54,12 @@
 							"isShow": true,
 							"icons": {
 								"pre": {
-									"isShow": false,
+									"isShow": true,
 									"icon": ""
 								},
 								"post": {
 									"isShow": true,
-									"icon": "arrow-right"
+									"icon": ""
 								}
 							}
 						},
@@ -70,7 +70,7 @@
 							"isShow": true,
 							"icons": {
 								"pre": {
-									"icon": "play",
+									"icon": "",
 									"isShow": true
 								},
 								"post": {
@@ -206,14 +206,13 @@
 							"text": "Get Started Today",
 							"email": "contact@stack.com",
 							"isShow": true,
-							"icon": "mail,arrow-right",
 							"icons": {
 								"pre": {
-									"icon": "envelope",
+									"icon": "",
 									"isShow": true
 								},
 								"post": {
-									"icon": "arrow-right",
+									"icon": "",
 									"isShow": true
 								}
 							}
@@ -231,7 +230,7 @@
 									"isShow": false
 								},
 								"post": {
-									"icon": "false",
+									"icon": "",
 									"isShow": false
 								}
 							}

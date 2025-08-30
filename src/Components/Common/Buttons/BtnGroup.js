@@ -1,24 +1,19 @@
-import { ArrowRight, Mail, Play } from "lucide-react";
-import React from "react";
-import BtnPrimary from "./BtnPrimary";
-import BtnSecondary from "./BtnSecondary";
 import MediaBtn from "./MediaBtn";
+import MailBtn from "./MailBtn";
+import Button from "./Button";
 
 const BtnGroup = ({ buttons }) => {
+  const BtnTypes = {
+    regular: Button,
+    media: MediaBtn,
+    email: MailBtn,
+  };
+
   return (
     <div className="ps_btn_group">
-      {buttons.map((btn) => {
-        return (
-          <>
-            {btn?.type === "regular" && btn?.variant === "primary" && (
-              <BtnPrimary {...{ btn }} />
-            )}
-            {btn?.type === "regular" && btn?.variant === "secondary" && (
-              <BtnSecondary {...{ btn }} />
-            )}
-            {btn?.type === "media" && <MediaBtn {...{ btn }} />}
-          </>
-        );
+      {buttons?.map((btn, idx) => {
+        const BtnType = BtnTypes[btn?.type] || Button;
+        return <BtnType key={idx} {...{ btn }} />;
       })}
     </div>
   );

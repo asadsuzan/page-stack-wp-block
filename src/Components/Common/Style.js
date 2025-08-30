@@ -26,8 +26,8 @@ const Style = ({ attributes, id }) => {
 	
 	    ${getTypoCSS("", pgTitle?.typo).googleFontLink} 
 	    ${getTypoCSS("", pgDescription?.typo).googleFontLink} 
-        ${getTypoCSS(pgTitleSl, pgTitle?.typo)?.styles} 
-        ${getTypoCSS(pgDescriptionSl, pgDescription?.typo)?.styles} 
+      ${getTypoCSS(pgTitleSl, pgTitle?.typo)?.styles} 
+      ${getTypoCSS(pgDescriptionSl, pgDescription?.typo)?.styles} 
      
 	
 

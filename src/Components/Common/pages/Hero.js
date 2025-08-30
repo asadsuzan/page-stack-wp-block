@@ -5,11 +5,11 @@ import PageDescription from "../PageDescription";
 import BtnGroup from "../Buttons/BtnGroup";
 
 const Hero = ({ section }) => {
-  const { order, title, description, buttons } = section || {};
+  const { order = 1, title, description, buttons = [] } = section || {};
   return (
     <section className="hero-section">
       <div className="hero-overlay" />
-      <NumericLabel label={section?.order} />
+      <NumericLabel label={order} />
 
       <div className="hero-container">
         <div className="hero-grid">
