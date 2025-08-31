@@ -10,7 +10,9 @@ const Edit = (props) => {
     <>
       <Settings {...{ attributes, setAttributes }} />
 
-      <div {...useBlockProps()}>
+      <div {...useBlockProps({
+        draggable: false
+      })}>
         <Style attributes={attributes} id={`block-${clientId}`} />
 
         <Stack attributes={attributes} setAttributes={setAttributes} />

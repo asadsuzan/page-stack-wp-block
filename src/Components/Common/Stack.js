@@ -106,9 +106,28 @@ const Stack = ({ attributes, setAttributes }) => {
                 return (
                   <section
                     key={idx}
-                    className="flex items-center justify-center min-h-screen bg-black text-white"
+                    style={{
+                      display: "flex",
+                      justifyContent: "center",
+                      alignItems: "center",
+                      background: section?.bg?.color,
+
+                    }}
                   >
-                    <h1>{section?.id}</h1>
+                    <div
+                      style={{
+                        position: "absolute",
+                        inset: 0,
+                        left: 0,
+                        top: 0,
+                        bottom: 0,
+                        background: section?.bg?.mask
+
+                      }}
+                    ></div>
+                    <h1 style={{
+                      color: "#fff"
+                    }}>{section?.label} {idx}</h1>
                   </section>
                 );
             }

@@ -13,4 +13,18 @@ $primaryColor: #4527a4;
 	.selectHelp {
 		color: #616063;
 	}
+
+	.ps_color_palates {
+		display: flex;
+		gap: 13px;
+		flex-wrap: wrap;
+
+		.circle {
+			height: 30px;
+			width: 30px;
+			cursor: pointer;
+			border-radius: 99999px;
+			box-shadow: 0 10px 15px -3px rgba(168, 85, 247, 0.25);
+		}
+	}
 }

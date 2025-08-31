@@ -26,7 +26,11 @@ const General = ({ attributes, setAttributes }) => {
           activeIndex={activeSectionIndex}
           newItem={{
             id: `New Page ${generateId(sections)}`,
-            label: `New Page ${generateId(sections)}`,
+            label: `untitled`,
+            bg: {
+              color: "linear-gradient(to bottom right, #312e81, #581c87, #9d174d)",
+              mask: "linear-gradient(to right, rgba(37, 99, 235, 0.2), rgba(147, 51, 234, 0.2))"
+            },
             order: generateId(sections),
             title: [
               {
@@ -50,9 +54,10 @@ const General = ({ attributes, setAttributes }) => {
             visuals: [],
           }}
           ItemSettings={SectionItemsPanel}
-          design="single"
+          design="sortable"
           title="label"
-          itemLabel={sections[activeSectionIndex]?.label}
+          itemLabel="page"
+
         />
       </PanelBody>
     </>
