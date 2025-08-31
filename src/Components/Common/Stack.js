@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { Children, useEffect, useRef, useState } from 'react';
 import Indicators from './pages/Indicators';
 import Navigation from './pages/Navigation';
 import Hero from './pages/Hero';
@@ -7,16 +7,12 @@ import Contact from './pages/Contact';
 import Team from './pages/Team';
 import Analytics from './pages/Analytics';
 
-const Stack = ({ attributes, setAttributes }) => {
+const Stack = ({ attributes, setAttributes, children }) => {
   const { sections } = attributes || {}
 
 
   const [currentSection, setCurrentSection] = useState(0);
   const scrollRef = useRef(null);
-
-
-
-
 
   const scrollToSection = (index) => {
     if (scrollRef.current) {
@@ -107,9 +103,6 @@ const Stack = ({ attributes, setAttributes }) => {
                   <section
                     key={idx}
                     style={{
-                      display: "flex",
-                      justifyContent: "center",
-                      alignItems: "center",
                       background: section?.bg?.color,
 
                     }}
@@ -125,9 +118,13 @@ const Stack = ({ attributes, setAttributes }) => {
 
                       }}
                     ></div>
-                    <h1 style={{
-                      color: "#fff"
-                    }}>{section?.label} {idx}</h1>
+                    {
+                      children
+                    }
+
+
+
+
                   </section>
                 );
             }

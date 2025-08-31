@@ -1,4 +1,4 @@
-import { useBlockProps } from "@wordpress/block-editor";
+import { InnerBlocks, useBlockProps } from "@wordpress/block-editor";
 import Settings from "./Settings/Settings";
 import Style from "../Common/Style";
 import Stack from '../Common/Stack';
@@ -15,7 +15,9 @@ const Edit = (props) => {
       })}>
         <Style attributes={attributes} id={`block-${clientId}`} />
 
-        <Stack attributes={attributes} setAttributes={setAttributes} />
+        <Stack attributes={attributes} setAttributes={setAttributes}>
+          <InnerBlocks />
+        </Stack>
       </div>
     </>
   );

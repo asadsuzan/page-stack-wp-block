@@ -24,3 +24,11 @@ export const generateId = (itemArray) => {
   const maxId = Math.max(...ids);
   return maxId + 1;
 };
+
+
+export const addSvgAttrs = (svgString, attrs = {}) => {
+  let extra = Object.entries(attrs)
+    .map(([key, value]) => `${key}="${value}"`)
+    .join(" ");
+  return svgString.replace("<svg", `<svg ${extra}`);
+};
