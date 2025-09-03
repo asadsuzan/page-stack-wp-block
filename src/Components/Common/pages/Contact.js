@@ -1,4 +1,4 @@
-import { ArrowRight, Mail, Shield, Users, Zap } from "lucide-react";
+import { Shield, Users, Zap } from "lucide-react";
 import React from "react";
 import NumericLabel from "../NumericLabel";
 import PageTitle from "../PageTitle";

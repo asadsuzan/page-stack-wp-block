@@ -1,30 +1,26 @@
-import { __ } from "@wordpress/i18n";
 import {
-  CheckboxControl,
-  Flex,
-  FlexItem,
-  PanelBody,
+
   PanelRow,
   TextareaControl,
   TextControl,
   ToggleControl,
+  __experimentalNumberControl as NumberControl
 } from "@wordpress/components";
 import {
-  IconLibrary,
-  InlineMediaUpload,
+
   Label,
 } from "../../../../../bpl-tools-main/Components";
 import { updateData } from "../../../utils/functions";
-import { useEffect } from "react";
+
 
 const SectionItemsPanel = ({
   attributes,
   setAttributes,
   index,
-  activeIndex,
+
 }) => {
-  const { sections, activeSectionIndex } = attributes;
-  const { label, title, description, buttons, id } = sections[index];
+  const { sections, } = attributes;
+  const { label, id, order } = sections[index];
 
   const defaultPageIds = ['hero', 'features', 'contact', 'team', 'analytics']
   const defaultColorPalates = [
@@ -94,6 +90,23 @@ const SectionItemsPanel = ({
           setAttributes({ sections: updateData(sections, v, index, "label") })
         }
       />
+
+      {/* NumericLabel  */}
+
+      <NumberControl
+        className='mt20'
+        label="Numeric Order"
+        onChange={(v) =>
+          setAttributes({ sections: updateData(sections, v, index, "order") })
+        }
+
+        value={order}
+
+
+
+      />
+
+
       {/* title setings  */}
       {sections[index]?.title?.map((item, idx) => {
         return (

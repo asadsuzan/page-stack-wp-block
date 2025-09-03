@@ -4,7 +4,7 @@ import PageTitle from '../PageTitle';
 import PageDescription from '../PageDescription';
 
 const Analytics = ({ section }) => {
-    const { title, order, description, buttons } = section || {};
+    const { title, description } = section || {};
     return (
         <section className="analytics-section">
             <div className="overlay"></div>

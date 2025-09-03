@@ -1,4 +1,4 @@
-import { ArrowRight, Play } from "lucide-react";
+
 import NumericLabel from "../NumericLabel";
 import PageTitle from "../PageTitle";
 import PageDescription from "../PageDescription";

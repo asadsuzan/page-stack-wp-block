@@ -1,13 +1,11 @@
 import {
-  mobileBreakpoint,
-  tabBreakpoint,
+
 } from "../../../../bpl-tools-main/utils/data";
 import {
   getBackgroundCSS,
-  getBorderCSS,
-  getBoxCSS,
+
   getTypoCSS,
-  isValidCSS,
+
 } from "../../../../bpl-tools-main/utils/getCSS";
 
 const Style = ({ attributes, id }) => {

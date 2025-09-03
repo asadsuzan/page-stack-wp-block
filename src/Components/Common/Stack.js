@@ -1,4 +1,4 @@
-import { Children, useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import Indicators from './pages/Indicators';
 import Navigation from './pages/Navigation';
 import Hero from './pages/Hero';
@@ -6,6 +6,7 @@ import Features from './pages/Features';
 import Contact from './pages/Contact';
 import Team from './pages/Team';
 import Analytics from './pages/Analytics';
+import NumericLabel from './NumericLabel';
 
 const Stack = ({ attributes, setAttributes, children }) => {
   const { sections } = attributes || {}
@@ -118,6 +119,7 @@ const Stack = ({ attributes, setAttributes, children }) => {
 
                       }}
                     ></div>
+                    <NumericLabel label={section?.order} />
                     {
                       children
                     }

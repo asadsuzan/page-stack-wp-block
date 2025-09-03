@@ -4,7 +4,7 @@ import PageTitle from '../PageTitle';
 import PageDescription from '../PageDescription';
 
 const Team = ({ section }) => {
-    const { title, order, description, buttons } = section || {};
+    const { title, order, description } = section || {};
     return (
         <section className="team-section">
             <div className="overlay"></div>

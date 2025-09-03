@@ -1,16 +1,16 @@
 import { __ } from "@wordpress/i18n";
-import { PanelBody, SelectControl, ToggleControl } from "@wordpress/components";
+import { PanelBody, } from "@wordpress/components";
 
-import { generateId, updateData } from "../../../../utils/functions";
+import { generateId } from "../../../../utils/functions";
 import { ItemsPanel } from "../../../../../../bpl-tools-main/Components";
 import SectionItemsPanel from "../../itemsPanel/sectionsItemPanel";
-import { useState } from "react";
+
 
 const General = ({ attributes, setAttributes }) => {
   const { sections, activeSectionIndex } = attributes || {};
+  console.table(sections)
 
-  const [activeIndex, setActiveIndex] = useState(0);
-  console.log(activeIndex, "general");
+
 
   return (
     <>
@@ -21,7 +21,7 @@ const General = ({ attributes, setAttributes }) => {
         initialOpen={true}
       >
         <ItemsPanel
-          {...{ attributes, setAttributes, activeIndex }}
+          {...{ attributes, setAttributes }}
           arrKey="sections"
           activeIndex={activeSectionIndex}
           newItem={{
