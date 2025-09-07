@@ -8,6 +8,7 @@ const Navigation = ({
     logoText = 'STACK',
     className = ''
 }) => {
+    console.log(sections);
     return (
         <nav className={`nav ${className}`}>
             <div className="nav__container">

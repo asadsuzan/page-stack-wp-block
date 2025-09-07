@@ -1,15 +1,34 @@
 import { useEffect, useRef, useState } from 'react';
-import Indicators from './pages/Indicators';
+import { useSelect } from '@wordpress/data';
 import Navigation from './pages/Navigation';
-import Hero from './pages/Hero';
-import Features from './pages/Features';
-import Contact from './pages/Contact';
-import Team from './pages/Team';
-import Analytics from './pages/Analytics';
-import NumericLabel from './NumericLabel';
+import Indicators from './pages/Indicators';
 
-const Stack = ({ attributes, setAttributes, children }) => {
+import { InnerBlocks } from "@wordpress/block-editor";
+const Stack = ({ attributes, setAttributes, children, clientId, content }) => {
   const { sections } = attributes || {}
+
+  const innerBlocks = useSelect((select) => {
+    if (clientId) {
+      return select('core/block-editor').getBlocks(clientId);
+    }
+    return [];
+  }, [clientId]);
+
+  // Sync innerBlocks to attributes.sections
+  useEffect(() => {
+    if (setAttributes && innerBlocks.length > 0) {
+      const updatedSections = innerBlocks.map((block, index) => ({
+        id: block.attributes.title || `section-${index}`,
+        label: block.attributes.title || `Section ${index + 1}`,
+        order: index + 1,
+        icon: block.attributes.icon?.class || 'fa-solid fa-star'
+      }));
+      setAttributes({ sections: updatedSections });
+    }
+  }, [innerBlocks, setAttributes]);
+
+  // Template for InnerBlocks based on sections
+  const template = sections ? sections.map(section => ['psb/section', { title: section.label, icon: { class: section.icon } }]) : [];
 
 
   const [currentSection, setCurrentSection] = useState(0);
@@ -23,7 +42,9 @@ const Stack = ({ attributes, setAttributes, children }) => {
         left: index * sectionWidth,
         behavior: 'smooth'
       });
-      setAttributes({ activeSectionIndex: index })
+      if (setAttributes) {
+        setAttributes({ activeSectionIndex: index })
+      }
     }
   };
 
@@ -62,81 +83,48 @@ const Stack = ({ attributes, setAttributes, children }) => {
     }
   }, []);
 
-
   return (
     <div className="bBlocksPageStack">
 
-      <Navigation
-        sections={sections}
-        currentSection={currentSection}
-        onScrollToSection={scrollToSection}
-        logoText={attributes.logoText || 'STACK'}
+      <div className='bBlocksPageStack'>
+        <Navigation
+          sections={sections}
+          currentSection={currentSection}
+          onScrollToSection={scrollToSection}
+          logoText={attributes.logoText || 'STACK'}
 
-      />
-      <Indicators
-        sections={sections}
-        currentSection={currentSection}
-        handleClick={scrollToSection}
+        />
 
-      />
-      <div
-        ref={scrollRef}
-        onWheel={handleWheel}
-        className='scroll-container'
-      >
+        <Indicators
 
 
-        {
-          sections.map((section, idx) => {
-            switch (section.id) {
-              case 'hero':
-                return <Hero key={idx} section={section} />;
-              case 'features':
-                return <Features key={idx} section={section} />;
-              case 'contact':
-                return <Contact key={idx} section={section} />;
-              case 'team':
-                return <Team key={idx} section={section} />;
-              case 'analytics':
-                return <Analytics key={idx} section={section} />;
-              default:
-                return (
-                  <section
-                    key={idx}
-                    style={{
-                      background: section?.bg?.color,
+          sections={sections}
+          currentSection={currentSection}
+          handleClick={scrollToSection}
 
-                    }}
-                  >
-                    <div
-                      style={{
-                        position: "absolute",
-                        inset: 0,
-                        left: 0,
-                        top: 0,
-                        bottom: 0,
-                        background: section?.bg?.mask
-
-                      }}
-                    ></div>
-                    <NumericLabel label={section?.order} />
-                    {
-                      children
-                    }
-
-
-
-
-                  </section>
-                );
-            }
-          })
-        }
-
-
+        />
+        <div
+          className='scroll-container'
+          ref={scrollRef}
+          onWheel={handleWheel}
+          {...(content ? { dangerouslySetInnerHTML: { __html: content } } : {})}
+        >
+          {!content && (setAttributes ? (
+            <InnerBlocks
+              allowedBlocks={['psb/section']} // শুধু child section add করা যাবে
+              template={template}
+              templateLock={false}
+            />
+          ) : (
+            children
+          ))}
+        </div>
 
       </div>
+
+
     </div>
+
   );
 };
 

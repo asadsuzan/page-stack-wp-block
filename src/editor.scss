@@ -10,6 +10,30 @@ $primaryColor: #4527a4;
 }
 
 .wp-block-b-blocks-page-stack {
+	.bBlocksPageStack {
+		.block-editor-inner-blocks {
+
+			border: 3px solid #000;
+			width: 100%;
+			height: 100%;
+			margin: 1rem 0;
+			padding: 3rem;
+
+
+		}
+
+		.block-editor-inner-blocks:first-child {
+
+			border: 5px solid green;
+			width: 100%;
+			height: 100%;
+			margin: 1rem 0;
+			padding: 3rem;
+
+
+		}
+	}
+
 	.selectHelp {
 		color: #616063;
 	}

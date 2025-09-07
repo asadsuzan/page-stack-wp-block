@@ -27,6 +27,7 @@ if( !class_exists( 'PSKBPLUGIN' ) ){
 
 		function onInit(){
 			register_block_type( __DIR__ . '/build' );
+			register_block_type( __DIR__ . '/build/ps-section' );
 
 		}
 	}

@@ -1,0 +1,40 @@
+{
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 3,
+    "name": "psb/section",
+    "title": "Section",
+    "description": "Sectio for Page Stack block",
+    "category": "widgets",
+    "version": "1.0.4",
+    "parent": [
+        "b-blocks/page-stack"
+    ],
+    "keywords": [
+        "section"
+    ],
+    "textdomain": "page-stack",
+    "attributes": {
+        "title": {
+            "type": "string",
+            "default": "Page Stack Section"
+        },
+        "icon": {
+            "type": "object",
+            "default": {
+                "class": "fa-solid fa-music"
+            }
+        }
+    },
+    "supports": {
+        "align": [
+            "wide",
+            "full"
+        ],
+        "html": false
+    },
+    "example": {
+        "attributes": {}
+    },
+    "editorScript": "file:./index.js",
+    "render": "file:./render.php"
+}

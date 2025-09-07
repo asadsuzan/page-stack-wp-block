@@ -8,7 +8,7 @@ import SectionItemsPanel from "../../itemsPanel/sectionsItemPanel";
 
 const General = ({ attributes, setAttributes }) => {
   const { sections, activeSectionIndex } = attributes || {};
-  console.table(sections)
+
 
 
 
