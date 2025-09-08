@@ -2,6 +2,7 @@ import { InnerBlocks, InspectorControls, useBlockProps } from '@wordpress/block-
 import { TextControl } from '@wordpress/components';
 
 export default function Edit({ attributs }) {
+
     return (
         <>
 
@@ -20,6 +21,7 @@ export default function Edit({ attributs }) {
                     draggable: false
                 })}
             >
+
                 <InnerBlocks
 
                     templateLock={false}
