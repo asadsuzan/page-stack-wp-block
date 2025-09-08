@@ -135,46 +135,45 @@ const Stack = ({ attributes, setAttributes, children, clientId, content }) => {
   }, []);
 
   return (
-    <div className="bBlocksPageStack">
-
-      <div className='bBlocksPageStack'>
-        <Navigation
-          sections={sections}
-          currentSection={currentSection}
-          onScrollToSection={scrollToSection}
-          logoText={attributes.logoText || 'STACK'}
-
-        />
-
-        <Indicators
 
 
-          sections={sections}
-          currentSection={currentSection}
-          handleClick={scrollToSection}
+    <div className='bBlocksPageStack'>
+      <Navigation
+        sections={sections}
+        currentSection={currentSection}
+        onScrollToSection={scrollToSection}
+        logoText={attributes.logoText || 'STACK'}
 
-        />
-        <div
-          className='scroll-container'
-          ref={scrollRef}
-          onWheel={handleWheel}
-          {...(content ? { dangerouslySetInnerHTML: { __html: content } } : {})}
-        >
-          {!content && (setAttributes ? (
-            <InnerBlocks
-              allowedBlocks={['psb/section']} // শুধু child section add করা যাবে
-              template={template}
-              templateLock={false}
-            />
-          ) : (
-            children
-          ))}
-        </div>
+      />
 
+      <Indicators
+
+
+        sections={sections}
+        currentSection={currentSection}
+        handleClick={scrollToSection}
+
+      />
+      <div
+        className='scroll-container'
+        ref={scrollRef}
+        onWheel={handleWheel}
+        {...(content ? { dangerouslySetInnerHTML: { __html: content } } : {})}
+      >
+        {!content && (setAttributes ? (
+          <InnerBlocks
+            allowedBlocks={['psb/section']} // শুধু child section add করা যাবে
+            template={template}
+            templateLock={false}
+          />
+        ) : (
+          children
+        ))}
       </div>
 
-
     </div>
+
+
 
   );
 };
