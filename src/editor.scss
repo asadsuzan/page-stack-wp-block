@@ -1,5 +1,6 @@
 $primaryColor: #4527a4;
 
+
 .bBlocksInspectorInfo {
 	padding: 6px;
 
@@ -11,6 +12,10 @@ $primaryColor: #4527a4;
 
 .wp-block-b-blocks-page-stack {
 	.bBlocksPageStack {
+		section {
+			padding-top: 5rem;
+		}
+
 		.block-editor-inner-blocks {
 
 			// border: 3px solid #000;

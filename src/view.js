@@ -11,6 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
 		const preEl = blockNameEl.querySelector('pre');
 		const content = preEl.innerHTML;
 
+
 		createRoot(blockNameEl).render(<>
 			<Style attributes={attributes} id={blockNameEl.id} />
 

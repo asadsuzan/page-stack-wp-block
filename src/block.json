@@ -30,8 +30,7 @@
 			"type": "array",
 			"default": [
 				{
-					"id": "hero",
-					"label": "Hero",
+					"id": 1,
 					"order": 1,
 					"title": [
 						{
@@ -95,8 +94,7 @@
 					]
 				},
 				{
-					"id": "features",
-					"label": "Features",
+					"id": 2,
 					"order": 2,
 					"title": [
 						{
@@ -181,8 +179,7 @@
 					]
 				},
 				{
-					"id": "contact",
-					"label": "Contact",
+					"id": 3,
 					"order": 3,
 					"title": [
 						{
@@ -252,7 +249,7 @@
 					]
 				},
 				{
-					"id": "team",
+					"id": 4,
 					"label": "Team",
 					"order": 4,
 					"title": [
@@ -290,7 +287,7 @@
 					]
 				},
 				{
-					"id": "analytics",
+					"id": 5,
 					"label": "Analytics",
 					"order": 5,
 					"title": [
