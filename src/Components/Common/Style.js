@@ -1,12 +1,12 @@
 import {
 
-} from "../../../../bpl-tools-main/utils/data";
+} from "../../../../bpl-tools/utils/data";
 import {
   getBackgroundCSS,
 
   getTypoCSS,
 
-} from "../../../../bpl-tools-main/utils/getCSS";
+} from "../../../../bpl-tools/utils/getCSS";
 
 const Style = ({ attributes, id }) => {
   const { styles } = attributes || {};

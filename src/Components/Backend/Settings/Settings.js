@@ -2,7 +2,7 @@
 import { __ } from '@wordpress/i18n';
 import { InspectorControls, BlockControls, AlignmentToolbar } from '@wordpress/block-editor';
 import { TabPanel } from '@wordpress/components';
-import { tabController } from '../../../../../bpl-tools-main/utils/functions';
+import { tabController } from '../../../../../bpl-tools/utils/functions';
 import { generalStyleTabs } from '../../../utils/options';
 import General from './General/General';
 import Style from './Style/Style';

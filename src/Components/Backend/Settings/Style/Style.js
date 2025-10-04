@@ -4,8 +4,8 @@ import {
   Background,
   ColorControl,
   Typography,
-} from "../../../../../../bpl-tools-main/Components";
-import { updateData } from "../../../../../../bpl-tools-main/utils/functions";
+} from "../../../../../../bpl-tools/Components";
+import { updateData } from "../../../../../../bpl-tools/utils/functions";
 
 const Style = ({ attributes, setAttributes }) => {
   const { styles } = attributes || {};

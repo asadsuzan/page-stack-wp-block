@@ -1,0 +1,1 @@
+- implement content editing in inner block 

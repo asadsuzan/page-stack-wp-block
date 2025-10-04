@@ -1,21 +1,17 @@
 import { __ } from "@wordpress/i18n";
-import { PanelBody, } from "@wordpress/components";
+import { PanelBody, TextControl } from "@wordpress/components";
 
-import { generateId } from "../../../../utils/functions";
-import { ItemsPanel } from "../../../../../../bpl-tools-main/Components";
+import { generateId, updateData } from "../../../../utils/functions";
+import { ItemsPanel } from "../../../../../../bpl-tools/Components";
 import SectionItemsPanel from "../../itemsPanel/sectionsItemPanel";
-
 
 const General = ({ attributes, setAttributes }) => {
   const { sections, activeSectionIndex } = attributes || {};
 
-
-
-
   return (
     <>
       {/* pages  */}
-      <PanelBody
+      {/* <PanelBody
         className="bPlPanelBody"
         title={__("Page", "b-blocks")}
         initialOpen={true}
@@ -59,6 +55,25 @@ const General = ({ attributes, setAttributes }) => {
           itemLabel="page"
 
         />
+      </PanelBody> */}
+      <PanelBody
+        className="bPlPanelBody"
+        title={__("General", "b-blocks")}
+        initialOpen={true}
+      >
+        {attributes.sections.map((section, i) => (
+          <div key={section.id}>
+            <TextControl
+              label={section.label}
+              value={section.label}
+              onChange={(value) =>
+                setAttributes({
+                  sections: updateData(sections, value, i, "label"),
+                })
+              }
+            />
+          </div>
+        ))}
       </PanelBody>
     </>
   );

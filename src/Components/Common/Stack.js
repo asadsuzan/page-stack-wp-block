@@ -1,107 +1,107 @@
-import { useEffect, useRef, useState, useCallback } from 'react';
-import { useSelect, useDispatch } from '@wordpress/data';
-import Navigation from './pages/Navigation';
-import Indicators from './pages/Indicators';
-import { IconButton } from "@wordpress/components";
-import { InnerBlocks, Inserter } from "@wordpress/block-editor";
+import { useEffect, useRef, useState, useCallback } from "react";
+import { useSelect, useDispatch } from "@wordpress/data";
+import Navigation from "./pages/Navigation";
+import Indicators from "./pages/Indicators";
+import { IconButton, PanelBody, TextControl } from "@wordpress/components";
+
+import {
+  InnerBlocks,
+  Inserter,
+  InspectorControls,
+} from "@wordpress/block-editor";
+import { createBlock } from "@wordpress/blocks";
+import { __ } from "@wordpress/i18n";
+import { updateData } from "../../utils/functions";
 
 const Stack = ({ attributes, setAttributes, children, clientId, content }) => {
   const { sections, activeSectionIndex } = attributes;
   const [currentSection, setCurrentSection] = useState(activeSectionIndex || 0);
+  // const [initialBlocksCreated, setInitialBlocksCreated] = useState(false);
+  const [prevInnerBlocksClientIds, setPrevInnerBlocksClientIds] = useState([]);
   const scrollRef = useRef(null);
-  const hasInsertedBlocks = useRef(false);
-  const { insertBlocks } = useDispatch('core/block-editor');
+  const { replaceInnerBlocks } = useDispatch("core/block-editor");
+  const { updateBlockAttributes } = useDispatch("core/block-editor");
 
   // Get inner blocks
-  const innerBlocks = useSelect((select) => {
-    if (clientId) {
-      return select('core/block-editor').getBlocks(clientId);
-    }
-    return [];
-  }, [clientId]);
-
-  // Insert default inner blocks after mount
-  useEffect(() => {
-    if (!clientId || hasInsertedBlocks.current || !sections || sections.length === 0) return;
-
-    // Use setTimeout to ensure this runs after the initial render
-    setTimeout(() => {
-      const blocks = wp.data.select('core/block-editor').getBlocks(clientId);
-
-      if (blocks.length === 0 && sections.length > 0) {
-        const blocksToInsert = sections.map((section, i) => {
-          const titleText = section.title
-            ? section.title.map(t => t.text).join(' ')
-            : `Section ${i + 1}`;
-
-          return wp.blocks.createBlock('psb/section', {
-            title: titleText,
-            order: i + 1,
-          });
-        });
-
-        insertBlocks(blocksToInsert, 0, clientId);
-        hasInsertedBlocks.current = true;
+  const innerBlocks = useSelect(
+    (select) => {
+      if (clientId) {
+        return select("core/block-editor").getBlocks(clientId);
       }
-    }, 100);
-  }, [clientId, insertBlocks, sections]);
+      return [];
+    },
+    [clientId]
+  );
 
-  // Sync sections attribute with inner blocks
+  // Track changes in inner blocks (add, remove, reorder)
   useEffect(() => {
-    if (!setAttributes || !innerBlocks || innerBlocks.length === 0) return;
+    if (!setAttributes) return;
 
-    const updatedSections = innerBlocks.map((block, i) => {
-      const prevSection = sections && sections[i] ? { ...sections[i] } : {};
-      const label = block.attributes.title || prevSection.label || `Section ${i + 1}`;
+    // Get current block client IDs
+    const currentClientIds = innerBlocks.map((block) => block.clientId);
+    const clientIdsChanged =
+      JSON.stringify(currentClientIds) !==
+      JSON.stringify(prevInnerBlocksClientIds);
 
+    // Only update if blocks have changed
+    if (!clientIdsChanged) return;
+
+    // Update tracked client IDs
+    setPrevInnerBlocksClientIds(currentClientIds);
+
+    // If all blocks were deleted, clear sections
+    if (innerBlocks.length === 0) {
+      setAttributes({
+        sections: [],
+        activeSectionIndex: 0,
+      });
+      setCurrentSection(0);
+      return;
+    }
+
+    // Create new sections array from current blocks
+    const newSections = innerBlocks.map((block, index) => {
       return {
-        id: prevSection.id || `section-${i}`,
-        order: i + 1,
-        label: label,
-        title: [{ text: label, highlight: false }],
-        description: prevSection.description || '',
-        buttons: prevSection.buttons || [],
-        visuals: prevSection.visuals || [],
-        icon: prevSection.icon || 'fa-solid fa-star',
-        // Preserve other properties from the original section if they exist
-        ...(prevSection.features ? { features: prevSection.features } : {}),
-        ...(prevSection.members ? { members: prevSection.members } : {}),
-        ...(prevSection.stats ? { stats: prevSection.stats } : {}),
-        ...(prevSection.chart ? { chart: prevSection.chart } : {}),
-        ...(prevSection.highlights ? { highlights: prevSection.highlights } : {}),
+        id: index + 1,
+        label: block.attributes.label || `section-${index + 1}`,
+        title: block.attributes.title || `Section ${index + 1}`,
+        badge: block.attributes.badge || index + 1,
+        description: block.attributes.description || "",
       };
     });
-    console.log(sections);
-    // Only update if sections have actually changed
-    const currentSectionsJson = JSON.stringify(sections || []);
-    const updatedSectionsJson = JSON.stringify(updatedSections);
 
-    if (currentSectionsJson !== updatedSectionsJson) {
-      setAttributes({
-        sections: updatedSections,
-        activeSectionIndex: Math.min(currentSection, updatedSections.length - 1)
-      });
+    // Update sections attribute
+    setAttributes({
+      sections: newSections,
+      activeSectionIndex: Math.min(currentSection, newSections.length - 1),
+    });
+
+    // Adjust current section if needed
+    if (currentSection >= newSections.length) {
+      setCurrentSection(Math.max(0, newSections.length - 1));
     }
-  }, [innerBlocks, setAttributes, currentSection, sections]);
+  }, [innerBlocks, setAttributes, currentSection]);
 
   // Sync currentSection with activeSectionIndex
   useEffect(() => {
     setCurrentSection(activeSectionIndex || 0);
   }, [activeSectionIndex]);
 
-  const scrollToSection = useCallback((index) => {
-    if (scrollRef.current) {
-      const sectionWidth = scrollRef.current.offsetWidth;
-      scrollRef.current.scrollTo({
-        left: index * sectionWidth,
-        behavior: 'smooth'
-      });
-      if (setAttributes) {
-        setAttributes({ activeSectionIndex: index });
+  const scrollToSection = useCallback(
+    (index) => {
+      if (scrollRef.current) {
+        const sectionWidth = scrollRef.current.offsetWidth;
+        scrollRef.current.scrollTo({
+          left: index * sectionWidth,
+          behavior: "smooth",
+        });
+        if (setAttributes) {
+          setAttributes({ activeSectionIndex: index });
+        }
       }
-      setCurrentSection(index);
-    }
-  }, [setAttributes]);
+    },
+    [setAttributes]
+  );
 
   const handleScroll = useCallback(() => {
     if (scrollRef.current) {
@@ -118,87 +118,127 @@ const Stack = ({ attributes, setAttributes, children, clientId, content }) => {
     }
   }, [currentSection, setAttributes]);
 
-  const handleWheel = useCallback((e) => {
-    if (scrollRef.current) {
-      const delta = e.deltaY;
-      const threshold = 50;
+  const handleWheel = useCallback(
+    (e) => {
+      if (scrollRef.current) {
+        const delta = e.deltaY;
+        const threshold = 50;
 
-      if (Math.abs(delta) > threshold) {
-        if (delta > 0 && currentSection < (sections?.length || 1) - 1) {
-          scrollToSection(currentSection + 1);
-        } else if (delta < 0 && currentSection > 0) {
-          scrollToSection(currentSection - 1);
+        if (Math.abs(delta) > threshold) {
+          if (delta > 0 && currentSection < (sections?.length || 1) - 1) {
+            scrollToSection(currentSection + 1);
+          } else if (delta < 0 && currentSection > 0) {
+            scrollToSection(currentSection - 1);
+          }
         }
       }
-    }
-  }, [currentSection, sections, scrollToSection]);
+    },
+    [currentSection, sections, scrollToSection]
+  );
 
   useEffect(() => {
     const scrollContainer = scrollRef.current;
     if (scrollContainer) {
-      scrollContainer.addEventListener('scroll', handleScroll);
-      return () => scrollContainer.removeEventListener('scroll', handleScroll);
+      scrollContainer.addEventListener("scroll", handleScroll);
+      return () => scrollContainer.removeEventListener("scroll", handleScroll);
     }
   }, [handleScroll]);
 
   // Create template based on sections
   const template = (sections || []).map((section, i) => [
-    'psb/section',
+    "psb/section",
     {
-      title: section.title?.map(t => t.text).join(' ') || `Section ${i + 1}`,
-      order: i + 1,
-    }
+      title: section.title || `Section ${i + 1}`,
+      label: section.label || `section-${i + 1}`,
+      badge: section.badge || i + 1,
+      description: section.description || "",
+    },
   ]);
 
   return (
-    <div className='bBlocksPageStack'>
-      <Navigation
-        sections={sections || []}
-        currentSection={currentSection}
-        onScrollToSection={scrollToSection}
-        logoText={attributes.logoText || 'STACK'}
-      />
+    <>
+      {setAttributes && (
+        <InspectorControls>
+          <PanelBody
+            className="bPlPanelBody"
+            title={__("General", "b-blocks")}
+            initialOpen={true}
+          >
+            {attributes.sections.map((section, i) => (
+              <div key={section.id}>
+                <TextControl
+                  label={section.label}
+                  value={section.label}
+                  onChange={(value) => {
+                    // update parent attribute
+                    setAttributes({
+                      sections: updateData(sections, value, i, "label"),
+                    });
 
-      <Indicators
-        sections={sections || []}
-        currentSection={currentSection}
-        handleClick={scrollToSection}
-      />
+                    // update child block attribute so it persists
+                    if (innerBlocks[i]) {
+                      updateBlockAttributes(innerBlocks[i].clientId, {
+                        label: value,
+                      });
+                    }
+                  }}
+                />
+              </div>
+            ))}
+          </PanelBody>
+        </InspectorControls>
+      )}
 
-      <div
-        className='scroll-container'
-        ref={scrollRef}
-        onWheel={handleWheel}
-        {...(content ? { dangerouslySetInnerHTML: { __html: content } } : {})}
-      >
-        {!content && (setAttributes ? (
-          <InnerBlocks
-            allowedBlocks={['psb/section']}
-            template={template}
-            templateLock={false}
-            renderAppender={() => (
-              <Inserter
-                rootClientId={clientId}
-                isAppender
-                renderToggle={({ onToggle, disabled }) => (
-                  <IconButton
-                    className="bTempAddTab"
-                    onClick={onToggle}
-                    disabled={disabled}
-                    label={"Add New Section"}
-                    icon="plus-alt"
-                  >
-                    Add New Section
-                  </IconButton>
+      <div className="bBlocksPageStack">
+        <Navigation
+          sections={sections || []}
+          currentSection={currentSection}
+          onScrollToSection={scrollToSection}
+          logoText={attributes.logoText || "STACK"}
+        />
+
+        <Indicators
+          sections={sections || []}
+          currentSection={currentSection}
+          handleClick={scrollToSection}
+        />
+
+        <div
+          className="scroll-container"
+          ref={scrollRef}
+          onWheel={handleWheel}
+          {...(content ? { dangerouslySetInnerHTML: { __html: content } } : {})}
+        >
+          {!content &&
+            (setAttributes ? (
+              <InnerBlocks
+                allowedBlocks={["psb/section"]}
+                template={template}
+                templateLock={false}
+                renderAppender={() => (
+                  <Inserter
+                    rootClientId={clientId}
+                    isAppender
+                    renderToggle={({ onToggle, disabled }) => (
+                      <IconButton
+                        className="bTempAddTab"
+                        onClick={onToggle}
+                        disabled={disabled}
+                        label={"Add New Section"}
+                        icon="plus-alt"
+                      >
+                        Add New Section
+                      </IconButton>
+                    )}
+                  />
                 )}
               />
-            )}
-          />
-        ) : (
-          children
-        ))}
+            ) : (
+              children
+            ))}
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 

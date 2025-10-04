@@ -9,7 +9,7 @@ import {
 import {
 
   Label,
-} from "../../../../../bpl-tools-main/Components";
+} from "../../../../../bpl-tools/Components";
 import { updateData } from "../../../utils/functions";
 
 

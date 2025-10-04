@@ -14,15 +14,25 @@
     ],
     "textdomain": "page-stack",
     "attributes": {
+        "id": {
+            "type": "string",
+            "default": ""
+        },
+        "label": {
+            "type": "string",
+            "default": ""
+        },
         "title": {
             "type": "string",
             "default": "Page Stack Section"
         },
-        "icon": {
-            "type": "object",
-            "default": {
-                "class": "fa-solid fa-music"
-            }
+        "badge": {
+            "type": "string",
+            "default": ""
+        },
+        "description": {
+            "type": "string",
+            "default": ""
         }
     },
     "supports": {
