@@ -19,7 +19,7 @@ const Edit = (props) => {
       >
         <Style attributes={attributes} id={`block-${clientId}`} />
 
-        <Stack {...{ attributes, setAttributes, clientId }} />
+        <Stack {...{ attributes, setAttributes, clientId, isEditor: true }} />
       </div>
     </>
   );

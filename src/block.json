@@ -42,34 +42,6 @@
 					"title": "Institutional-Grade Infrastructure",
 					"badge": 2,
 					"description": "We are a deep specialization company that provides a range of services to help businesses transform their stacks."
-				},
-				{
-					"id": 3,
-					"label": "contact",
-					"title": "Ready to Transform Your Stack?",
-					"badge": 3,
-					"description": "We are a deep specialization company that provides a range of services to help businesses transform their stacks."
-				},
-				{
-					"id": 4,
-					"label": "team",
-					"title": "Meet Our Expert Team",
-					"badge": 4,
-					"description": "We are a deep specialization company that provides a range of services to help businesses transform their stacks."
-				},
-				{
-					"id": 5,
-					"label": "analytics",
-					"title": "Real-time Analytics",
-					"badge": 5,
-					"description": "We are a deep specialization company that provides a range of services to help businesses transform their stacks."
-				},
-				{
-					"id": 6,
-					"label": "about",
-					"title": "About Us",
-					"badge": 6,
-					"description": "We are a deep specialization company that provides a range of services to help businesses transform their stacks."
 				}
 			]
 		},

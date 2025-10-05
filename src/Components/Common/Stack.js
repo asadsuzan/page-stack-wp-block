@@ -9,17 +9,23 @@ import {
   Inserter,
   InspectorControls,
 } from "@wordpress/block-editor";
-import { createBlock } from "@wordpress/blocks";
+
 import { __ } from "@wordpress/i18n";
 import { updateData } from "../../utils/functions";
 
-const Stack = ({ attributes, setAttributes, children, clientId, content }) => {
+const Stack = ({
+  attributes,
+  setAttributes,
+  children,
+  clientId,
+  content,
+  isEditor,
+}) => {
   const { sections, activeSectionIndex } = attributes;
   const [currentSection, setCurrentSection] = useState(activeSectionIndex || 0);
   // const [initialBlocksCreated, setInitialBlocksCreated] = useState(false);
   const [prevInnerBlocksClientIds, setPrevInnerBlocksClientIds] = useState([]);
   const scrollRef = useRef(null);
-  const { replaceInnerBlocks } = useDispatch("core/block-editor");
   const { updateBlockAttributes } = useDispatch("core/block-editor");
 
   // Get inner blocks
@@ -192,20 +198,22 @@ const Stack = ({ attributes, setAttributes, children, clientId, content }) => {
       <div className="bBlocksPageStack">
         <Navigation
           sections={sections || []}
-          currentSection={currentSection}
-          onScrollToSection={scrollToSection}
+          currentSection={isEditor ? 0 : currentSection}
+          onScrollToSection={isEditor ? undefined : scrollToSection}
           logoText={attributes.logoText || "STACK"}
         />
 
-        <Indicators
-          sections={sections || []}
-          currentSection={currentSection}
-          handleClick={scrollToSection}
-        />
+        {isEditor ? null : (
+          <Indicators
+            sections={sections || []}
+            currentSection={currentSection}
+            handleClick={scrollToSection}
+          />
+        )}
 
         <div
           className="scroll-container"
-          ref={scrollRef}
+          ref={isEditor ? undefined : scrollRef}
           onWheel={handleWheel}
           {...(content ? { dangerouslySetInnerHTML: { __html: content } } : {})}
         >
