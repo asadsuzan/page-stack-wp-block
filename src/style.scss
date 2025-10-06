@@ -33,16 +33,15 @@ $primaryColor: #4527a4;
 
     section {
       height: 100vh;
+      min-width: 100%;
       flex: 1;
       scroll-snap-align: start;
       overflow: hidden;
       color: black;
       position: relative;
-      min-width: 100vw;
-      max-width: 100%;
       padding: 0rem 1rem;
       padding-top: 4.2rem;
-      background: linear-gradient(to bottom right, #312e81, #581c87, #9d174d);
+      // background: linear-gradient(to bottom right, #312e81, #581c87, #9d174d);
 
       // background: green;
 
