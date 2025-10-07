@@ -1,1 +1,1 @@
-- implement content editing in inner block 
+-- fix background issues

@@ -3,38 +3,53 @@ import {
   InspectorControls,
   useBlockProps,
 } from "@wordpress/block-editor";
-import { TextControl } from "@wordpress/components";
 
-export default function Edit({ attributes, setAttributes }) {
-  const { id, label, title, badge, description } = attributes;
-  //   console.log(attributes);
+import {
+  Background,
 
+} from "../../../bpl-tools/Components";
+import { PanelBody } from '@wordpress/components';
+import { updateData } from '../utils/functions';
+import { getBackgroundCSS } from '../../../bpl-tools/utils/getCSS';
+import Style from './style';
+
+export default function Edit({ attributes, setAttributes, clientId }) {
+  const { label, title, description, bg } = attributes;
+
+  console.log("bg: ", bg);
   return (
     <>
       <InspectorControls>
-        <TextControl
-          label="title"
-          value={title}
-          onChange={(value) => setAttributes({ title: value })}
-        />
-        <TextControl
-          label="label"
-          value={label}
-          onChange={(value) => setAttributes({ label: value })}
-        />
-        <TextControl
-          label="badge"
-          value={badge}
-          onChange={(value) => setAttributes({ badge: value })}
-        />
-        <TextControl
-          label="description"
-          value={description}
-          onChange={(value) => setAttributes({ description: value })}
-        />
+
+        <PanelBody
+          initialOpen=
+          {true}
+          label="section"
+        >
+
+          <Background
+            label="Title Highlight Background"
+            value={bg}
+            isImage={false}
+            defaults={bg}
+            onChange={(v) =>
+              setAttributes({
+                bg: updateData(bg, v),
+              })
+            }
+
+          />
+
+
+
+        </PanelBody>
+
+
       </InspectorControls>
+
+      <Style attributes={attributes} id={`block-${clientId}`} />
       <section {...useBlockProps({ draggable: false })}>
-        <div className="psb-section-overlay"></div>
+        <div className="psb-section-overlay" ></div>
         <InnerBlocks
           template={[
             [

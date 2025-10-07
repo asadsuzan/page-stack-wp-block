@@ -10,8 +10,10 @@ document.addEventListener("DOMContentLoaded", () => {
   blockNameEls.forEach((blockNameEl) => {
     const attributes = JSON.parse(blockNameEl?.dataset?.attributes);
 
-    const preEl = blockNameEl.querySelector("pre");
-    const content = preEl.innerHTML;
+    // const preEl = blockNameEl.querySelector("pre");
+    // const content = preEl.innerHTML;
+    const hiddenEl = blockNameEl.querySelector(".psb-hidden-content");
+    const content = hiddenEl?.innerHTML || "";
 
     createRoot(blockNameEl).render(
       <>

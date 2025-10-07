@@ -33,6 +33,12 @@
         "description": {
             "type": "string",
             "default": ""
+        },
+        "bg":{
+            "type":"object",
+            "default":{
+                "color":""
+            }
         }
     },
     "supports": {
